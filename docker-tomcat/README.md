@@ -1,6 +1,6 @@
 # Docker & Tomcat
 
-To build the image:
+To build the image, run inside this folder:
 
 ```
 docker build -t mytomcat ./
