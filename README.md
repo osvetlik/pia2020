@@ -16,3 +16,6 @@ Use the image defined in the [docker-tomcat](docker-tomcat/) folder. See the doc
 
 ## Servlets
 
+Java Servlet API - defines the API between the Servlet Container and the Web Application. 
+
+See the [servlets](servlets/) folder for more information and a list of tasks.
