@@ -18,4 +18,4 @@ Use `admin` as a username and `super tajne heslo` as a password.
 
 Here, you can deploy your own web application using the **WAR file to deploy** section:
 
-![Deploy section](./img/deploy.png Deployment form)
+![Deploy section](https://raw.githubusercontent.com/osvetlik/pia2020/master/docker-tomcat/img/deploy.png Deployment form)
