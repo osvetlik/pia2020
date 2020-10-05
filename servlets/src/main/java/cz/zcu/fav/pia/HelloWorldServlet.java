@@ -17,7 +17,17 @@ public class HelloWorldServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.getOutputStream().print("Hello world!");
+		final var from = req.getParameter("from");
+		final var sb = new StringBuilder("Hello world");
+		if (from != null) {
+			sb.append(" from ").append(from);
+		}
+		sb.append('!');
+
+		final var writer = resp.getWriter();
+		writer.write(sb.toString());
+		writer.write("\nContext started at: ");
+		writer.write(req.getServletContext().getAttribute(HelloWorldListener.CONTEXT_STARTUP_ATTRIBUTE_NAME).toString());
 	}
 
 }
