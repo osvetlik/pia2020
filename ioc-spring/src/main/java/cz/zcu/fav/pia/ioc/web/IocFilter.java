@@ -11,8 +11,8 @@ import javax.servlet.annotation.WebFilter;
 
 import lombok.extern.slf4j.Slf4j;
 
-@WebFilter("/neco/*")
-@Slf4j
+@WebFilter("/neco/*") // Classic Servlet API filter annotation
+@Slf4j // Lombok annotation providing the logger
 public class IocFilter implements Filter {
 
 	@Override
