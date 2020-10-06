@@ -174,4 +174,11 @@ in the `IocController`. I use `/hw` in the link below.
 4. It should fail - explore the log and find the information about multiple implementations of the same interface.
 5. Try solving the issue using the `@Primary` annotation
 6. Try solving the issue using the `@Qualifier` and either the automatically generated bean names or provide your preferred
-names in the `@Service` annotations.
+names in the `@Service` annotations. This way is not possible when injecting through the constructor, see the `@Autowired`
+annotation below.
+
+#### Using `@Autowired` instead of injection through a constructor
+1. In the `IocController` class remove the `final` keyword from the `service` field and add an `@Autowired` annotation
+instead.
+2. Run the application.
+3. It should work the same way as when injecting through the constructor.
