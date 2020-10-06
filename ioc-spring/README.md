@@ -78,7 +78,7 @@ There are three ways to handle this problem:
 1. add `@Transactional` to the `saveUsers()` method, if saving all users in one transaction is a viable option,
 2. add another layer - a separate service containing only the `saveUser()` method and another using this one as a dependency
 and providing single and multiple save possibilities,
-3. programmatically retrieve the proxy for `this` and us it to call the transactional method.
+3. programmatically retrieve the proxy for `this` and use it to call the transactional method.
 
 ### Boilerplate reduction & Lombok
 
