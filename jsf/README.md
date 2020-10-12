@@ -2,8 +2,12 @@
 
 ## Terms and theory
 
-### Server side application
+### Server side applications
 
 ### Expression language
 
+### JSF & Facelets
+
 ## Tasks
+
+### Explore the sample project
