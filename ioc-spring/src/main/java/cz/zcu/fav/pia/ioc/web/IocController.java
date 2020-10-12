@@ -1,11 +1,15 @@
 package cz.zcu.fav.pia.ioc.web;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import cz.zcu.fav.pia.ioc.service.IocService;
+import cz.zcu.fav.pia.ioc.service.IocService2;
 import lombok.RequiredArgsConstructor;
 
 @RestController // Marks this bean as a REST Controller - Spring loads it and configures it appropriately
@@ -21,7 +25,17 @@ public class IocController {
 	 * Notice the use of the IocService interface, Spring tries to find an implementation
 	 * for you.
 	 */
-	private final IocService service;
+	@Qualifier("firstImpl")
+	@Autowired
+	private IocService service;
+
+	/*
+	 * You can also inject multiple implementations as a collection and decide later
+	 * which one to use.
+	 */
+	private final List<IocService> services;
+
+	private final IocService2 serviceHw;
 
 	/*
 	 * This method is mapped to the / URI and Spring automatically converts the data provided to a JSON.
@@ -30,6 +44,21 @@ public class IocController {
 	@RequestMapping("/")
 	public List<String> names() {
 		return service.getNames();
+	}
+
+	@RequestMapping("/hw")
+	public String helloWorld() {
+		return serviceHw.helloWorld();
+	}
+
+	/*
+	 * Shows how to access multiple dependency implementations.
+	 */
+	@RequestMapping("/services")
+	public List<String> implementations() {
+		return services.stream()
+				.map(s -> s.getClass().getSimpleName())
+				.collect(Collectors.toList());
 	}
 
 }

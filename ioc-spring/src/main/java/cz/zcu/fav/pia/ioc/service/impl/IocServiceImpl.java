@@ -14,7 +14,7 @@ import lombok.RequiredArgsConstructor;
  * this implementation when scanning the project, creates a singleton instance
  * and injects it wherever the service (through the interface) is needed.
  */
-@Service
+@Service("firstImpl")
 @RequiredArgsConstructor // Lombok annotation to create a required args constructor
 public class IocServiceImpl implements IocService {
 
