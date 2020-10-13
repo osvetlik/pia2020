@@ -74,7 +74,7 @@ In our case we are using [OCPSoft's rewrite servlet](https://www.ocpsoft.org/rew
 
 ### Bootstrap
 
-[https://getbootstrap.com/docs/4.5/getting-started/introduction/](A popular CSS/JS framework) for building nice responsive web applications.
+[A popular CSS/JS framework](https://getbootstrap.com/docs/4.5/getting-started/introduction/) for building nice responsive web applications.
 
 ## Tasks
 
@@ -180,7 +180,7 @@ to use Bootstrap in our HTML.
 
 ### Apply bootstrap
 
-In your `second.xhtml` use [https://getbootstrap.com/docs/4.5/components/list-group/#javascript-behavior](bootstrap) to create 
+In your `second.xhtml` use [bootstrap](https://getbootstrap.com/docs/4.5/components/list-group/#javascript-behavior) to create 
 a tabbed pane with four tabs:
 
 1. **Hello World** containing just the Hello World text,
