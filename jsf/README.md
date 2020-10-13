@@ -72,6 +72,10 @@ to
 
 In our case we are using [OCPSoft's rewrite servlet](https://www.ocpsoft.org/rewrite/docs/).
 
+### Bootstrap
+
+[https://getbootstrap.com/docs/4.5/getting-started/introduction/](A popular CSS/JS framework) for building nice responsive web applications.
+
 ## Tasks
 
 ### Explore the sample project
@@ -106,6 +110,9 @@ Accessible via [http://localhost:8080/](http://localhost:8080/)
 The root tag contains the definition of all XML namespaces we want to use in our template,
 see the `xmlns` attributes. Then it points to a base template we want to use. This way
 we can easilly separate the design part from the logic part.
+
+Take a look at all the content of the `index.html` file and what effect it has
+[http://localhost:8080/](once rendered). You'll need it as an inspiration for your other tasks.
 
 #### `WEB-INF/jsf/base.xhtml`
 
@@ -161,3 +168,23 @@ Use the `temp` request parameter so that:
 [http://localhost:8080/second](http://localhost:8080/second) both use the `base.xhtml` and
 [http://localhost:8080/second?temp=bootstrap](http://localhost:8080/second?temp=bootstrap)
 uses the `bootstrap.xhtml`.
+
+### Add bootstrap to `bootstrap.xhtml`
+
+Try updating the `bootstrap.xhtml` template to include all the necessary parts to be able
+to use Bootstrap in our HTML.
+
+### Apply bootstrap
+
+In your `second.xhtml` use [https://getbootstrap.com/docs/4.5/components/list-group/#javascript-behavior](bootstrap) to create 
+a tabbed pane with four tabs:
+
+1. **Hello World** containing just the Hello World text,
+2. **Request params** containing a `<h:dataTable />` listing all request parameters, name in the
+first column, value in the second,
+3. **Request scope** containing a `<h:dataTable />` listing all request scoped beans, name in the
+first column, value in the second and
+4. **Info** containing an information about when the application was started and when the request
+was made.
+
+The last one requires you to implement a bean containing the necessary information.
