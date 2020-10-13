@@ -117,6 +117,89 @@ we can easilly separate the design part from the logic part.
 Take a look at all the content of the `index.xhtml` file and what effect it has
 [once rendered](http://localhost:8080/). You'll need it as an inspiration for your other tasks.
 
+Now to explain some basics.
+
+`<ui:repeat />` is a simple loop over all items in the collection defined in the `value` attribute.
+Inside the tag, the `name` variable/bean is available and in each pass contains another item of the
+collection:
+
+```
+<ui:repeat value="#{data.names()}" var="name">
+	<li>#{name}</li>
+</ui:repeat>
+```
+
+`#{data.names()}` is an EL expression pointing to the `data` bean and its `names()` method. Now, to understand
+what this really means, take a look at the `DataServiceImpl` class.
+
+Here, the `@Service` annotation contains a parameter overrading the default generated bean name and setting it
+to `data`. Hence the `data` in the EL:
+
+```Java
+@Service("data")
+public class DataServiceImpl implements DataService {
+```
+
+We are calling this method in the EL `#{data.names()}`:
+
+```Java
+	@Override
+	public List<String> names() {
+		return List.of("Karel", "Václav", "Preis");
+	}
+```
+
+This is a getter (although not implemented as one), EL calls this method
+when we try to access the field `names` in the bean using `#{data.names}`. Notice the difference
+to the method call above. As there are no parentheses in the latter, it is not a direct
+method call, but access to the field is implemented by calling a getter:
+
+```Java
+	@Override
+	public List<String> getNames() {
+		return names();
+	}
+```
+
+You can use the dot notation to traverse the data in the same way you would in Java:
+
+```
+#{data.names.get(0).length()}
+```
+
+Now to the different scopes. Here we are showing the random field in two beans
+implemented by the same class `RandomExample`:
+
+```
+<h2>Scopes - refresh the page to see changes</h2>
+<p>Application scoped random: #{applicationRandom.random}</p>
+<p>Request scoped random: #{requestRandom.random}</p>
+```
+
+We are creating two instances of this class in the `AppConfiguration` class. Their names
+are not explicitely stated, they are derived from the names of the respective methods
+creating them:
+
+```Java
+	@Bean
+	@RequestScope
+	public RandomExample requestRandom() {
+		return new RandomExample();
+	}
+
+	@Bean
+	public RandomExample applicationRandom() {
+		return new RandomExample();
+	}
+```
+
+This way we have a `requestRandom` bean which is `@RequestScoped`, thus it is created
+once per request. The other bean `applicationRandom` has no scope modification so it is
+an application scoped bean (singleton), which is the default behavior in Spring.
+
+When you refresh the page, you notice, that the request scoped random changes every request,
+while the application scoped one remains the same unless you restart the application.
+
 #### `WEB-INF/jsf/base.xhtml`
 
 By placing this file inside the `WEB-INF` folder we mark it as directly inaccessible. We want
