@@ -64,10 +64,9 @@ JSF Tag [Documentation](https://javaee.github.io/glassfish/doc/5.0/vdldoc/).
 
 ### URL Rewriting
 
-While we can use the whole path to our XHTML files, differend rewrite engines are commonly used
-to
+While we can use the whole path to our XHTML files, different rewrite engines are commonly used to:
 
-1. create "better" URLs and
+1. create "better" URLs
 2. hide the implementation details.
 
 In our case we are using [OCPSoft's rewrite servlet](https://www.ocpsoft.org/rewrite/docs/).
