@@ -116,7 +116,7 @@ see the `xmlns` attributes. Then it points to a base template we want to use. Th
 we can easilly separate the design part from the logic part.
 
 Take a look at all the content of the `index.html` file and what effect it has
-[http://localhost:8080/](once rendered). You'll need it as an inspiration for your other tasks.
+[once rendered](http://localhost:8080/). You'll need it as an inspiration for your other tasks.
 
 #### `WEB-INF/jsf/base.xhtml`
 
