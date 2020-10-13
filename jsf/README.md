@@ -114,7 +114,7 @@ The root tag contains the definition of all XML namespaces we want to use in our
 see the `xmlns` attributes. Then it points to a base template we want to use. This way
 we can easilly separate the design part from the logic part.
 
-Take a look at all the content of the `index.html` file and what effect it has
+Take a look at all the content of the `index.xhtml` file and what effect it has
 [once rendered](http://localhost:8080/). You'll need it as an inspiration for your other tasks.
 
 #### `WEB-INF/jsf/base.xhtml`
