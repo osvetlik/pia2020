@@ -78,6 +78,10 @@ In our case we are using [OCPSoft's rewrite servlet](https://www.ocpsoft.org/rew
 
 ## Tasks
 
+### Run the application
+
+Start the `JsfApp` class.
+
 ### Explore the sample project
 
 Notice that all the web stuff goes into `src/main/webapp` folder. And also that the project 
