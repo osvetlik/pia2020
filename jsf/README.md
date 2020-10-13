@@ -143,10 +143,10 @@ public class DataServiceImpl implements DataService {
 We are calling this method in the EL `#{data.names()}`:
 
 ```Java
-	@Override
-	public List<String> names() {
-		return List.of("Karel", "Václav", "Preis");
-	}
+@Override
+public List<String> names() {
+	return List.of("Karel", "Václav", "Preis");
+}
 ```
 
 This is a getter (although not implemented as one), EL calls this method
@@ -155,10 +155,10 @@ to the method call above. As there are no parentheses in the latter, it is not a
 method call, but access to the field is implemented by calling a getter:
 
 ```Java
-	@Override
-	public List<String> getNames() {
-		return names();
-	}
+@Override
+public List<String> getNames() {
+	return names();
+}
 ```
 
 You can use the dot notation to traverse the data in the same way you would in Java:
@@ -181,16 +181,16 @@ are not explicitely stated, they are derived from the names of the respective me
 creating them:
 
 ```Java
-	@Bean
-	@RequestScope
-	public RandomExample requestRandom() {
-		return new RandomExample();
-	}
+@Bean
+@RequestScope
+public RandomExample requestRandom() {
+	return new RandomExample();
+}
 
-	@Bean
-	public RandomExample applicationRandom() {
-		return new RandomExample();
-	}
+@Bean
+public RandomExample applicationRandom() {
+	return new RandomExample();
+}
 ```
 
 This way we have a `requestRandom` bean which is `@RequestScoped`, thus it is created
