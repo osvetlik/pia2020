@@ -14,4 +14,9 @@ public class DataServiceImpl implements DataService {
 		return List.of("Karel", "Václav", "Preis");
 	}
 
+	@Override
+	public List<String> getNames() {
+		return names();
+	}
+
 }

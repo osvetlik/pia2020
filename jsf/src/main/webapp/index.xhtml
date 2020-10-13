@@ -4,26 +4,61 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	
-	template="/WEB-INF/jsf/base.xhtml"
-	lang="cs">
+	template="/WEB-INF/jsf/base.xhtml">
 
 	<ui:define name="title">Hello World!</ui:define>
 	
 	<ui:define name="body">
 	    <h1>Hello World!</h1>
 	    
-	    <p>#{4 * 29}</p>
+	    <h2>Names retrieved using a method call</h2>
+		<ul>
+		    <ui:repeat value="#{data.names()}" var="name">
+		    	<li>#{name}</li>
+		    </ui:repeat>
+		</ul>
+
+	    <h2>Names retrieved using a getter</h2>
+		<ul>
+		    <ui:repeat value="#{data.names}" var="name">
+		    	<li>#{name}</li>
+		    </ui:repeat>
+		</ul>
+
+		<h2>Expression language examples</h2>
+	    <p>Calculation: #{4 * 29}</p>
+	    <p>String constant: #{'Hello'}</p>
+	    <p>Method call: #{'Hello'.length()}</p>
+	    <p>True constant: #{true}</p>
+	    <p>Null: #{null}</p>
+	    <p>Ternary operator: #{true ? 'Ok' : 'Not ok'}</p>
+	    
+	    <h2>Scopes - refresh the page to see changes</h2>
+	    <p>Application scoped random: #{applicationRandom.random}</p>
+	    <p>Request scoped random: #{requestRandom.random}</p>
+	    
+	    <h2>Exploring request scoped beans</h2>
 	    <dl>
 		    <ui:repeat value="#{requestScope}" var="bean">
 		    	<dt>#{bean.key}</dt>
 		    	<dd>#{bean.value}</dd>
 		    </ui:repeat>
 		</dl>
-		<ul>
-		    <ui:repeat value="#{data.names()}" var="name">
-		    	<li>#{name}</li>
-		    </ui:repeat>
-		</ul>
+		
+		<h2>Exploring request parameters</h2>
+		<p>#{param}</p>
+		
+		<h2>Components</h2>
+		<h:dataTable value="#{requestScope}" var="bean">
+			<h:column>
+				<f:facet name="header">key</f:facet>
+				#{bean.key}
+			</h:column>
+			<h:column>
+				<f:facet name="header">value</f:facet>
+				#{bean.value}
+			</h:column>
+		</h:dataTable>
 	</ui:define>
 	
 </ui:composition>

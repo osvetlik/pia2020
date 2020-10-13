@@ -6,4 +6,6 @@ public interface DataService {
 
 	List<String> names();
 
+	List<String> getNames();
+
 }
