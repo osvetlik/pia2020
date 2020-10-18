@@ -1,7 +1,7 @@
 # Semester Project PIA 2020
 
 You will be implementing an on-line version of the
-'[Gomoku](https://en.wikipedia.org/wiki/Gomoku)' game,
+'[Piškvorky](https://cs.wikipedia.org/wiki/Pi%C5%A1kvorky)' game,
 also known as *Five in a row*.
 
 ## Scope
@@ -13,13 +13,15 @@ also known as *Five in a row*.
 * lobby with the list of all logged-in users
 * friends list with the possibility to add/remove users and showing the status
 (on-line/off-line) of all user's friends
-* possibility to ask any on-line user to play a game
+* possibility to ask any on-line (and not currently engaged) user to play a game
 * gameplay
+* one or a selection of limited size boards
 * in-game chat
 * log of all game results
 
 ### Bonus parts
 
+* an unlimited board
 * OAuth2 authentication using Facebook, Google or any other OAuth2 IDM
 * tournaments - set-up (define number of players), let players join, play, show
 results to participants
