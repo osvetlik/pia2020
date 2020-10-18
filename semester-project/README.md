@@ -30,8 +30,8 @@ results to participants
 users
 * password reset using a security question
 * password reset using an e-mail (reset link)
-* feel free to come up with any other suggestion
 * mobile client
+* feel free to come up with any other suggestion
 
 ## Technology
 
