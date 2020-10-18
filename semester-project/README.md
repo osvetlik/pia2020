@@ -4,6 +4,8 @@ You will be implementing an on-line version of the
 '[Piškvorky](https://cs.wikipedia.org/wiki/Pi%C5%A1kvorky)' game,
 also known as *Five in a row*.
 
+If there's anything unclear, contact me as soon as possible, please.
+
 ## Scope
 
 ### Mandatory parts
@@ -22,6 +24,7 @@ also known as *Five in a row*.
 ### Bonus parts
 
 * an unlimited board
+* password strength evaluation
 * OAuth2 authentication using Facebook, Google or any other OAuth2 IDM
 * tournaments - set-up (define number of players), let players join, play, show
 results to participants
@@ -50,7 +53,8 @@ may use frameworks such as [Bootstrap](https://getbootstrap.com/),
 * ORM
 * sdandalone database (MySQL, PostgreSQL or anything else you are able to
 start in a Docker container)
-* REST
+* REST - there are many places where you can choose between REST and server-side, use REST
+at least once
 * web sockets
 * docker
 
@@ -61,6 +65,51 @@ start in a Docker container)
 or any other API modeling/specification language
 * docker compose
 * Angular, React, any other frontend technology
+
+## Solution details
+
+### User Registration
+
+* use e-mail address as the login name
+* the e-mail address must be unique within the user database
+* pasword and password validation must be provided by the user
+* the user must be notified in case of any problems (e-mail address already
+registered, passwords don't match, ...)
+* users are stored in the database, passwords must be encrypted
+* can be implemented as a REST call or a server-side logic
+
+### Login
+
+* e-mail and password
+* user must be notified of authentication failures without hinting what field was incorrect
+* can be implemented as a REST call or a server-side logic
+
+### Lobby
+
+* two panes or tabs with on-line users and friends with a status indicator
+  - refresh periodically by REST, AJAX or by a web socket listener, only the lists, not the whole page
+* non-engaged (not playing and not currently answering other user's game request) on-line players
+can be contacted with a game request, implement as a REST call or server-side with AJAX to prevent
+refreshing of the whole page
+* contacted user is notified and allowed to either accept or reject the invitation, REST or server-side
+with AJAX
+* first user is notified about the decision
+* user notifications using web socket
+
+### Gameplay
+
+* the player must see who's in turn at any time during the game
+* can be implemented as an HTML table (JSF `<h:dataTable />` for example)
+* the player in turn has the possibility to place his mark in any free square
+* the turn can be implemented as a REST call or a server-side with AJAX
+* the other player must be notified using web socket
+* in-game chat message sending can be implemented either as a REST call or a server-side with AJAX
+* in-game chat message notification must be implemented using web socket
+* in-game chat message retrieval in any of the three technologies
+* after one player wins or the board is full, both users are notified about the results
+* on an exit button they return (separately) to the lobby
+* the exit button is always available, when used during the game, the opponent is
+notified to have won
 
 ## Submission
 
