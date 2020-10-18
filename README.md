@@ -27,3 +27,7 @@ See the [ioc-spring](ioc-spring/) folder.
 ## Server side applications
 
 See the [jsf](jsf/) folder.
+
+## Semester project
+
+See the [semester-project](semester-project/) folder.
