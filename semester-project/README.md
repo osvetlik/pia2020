@@ -43,6 +43,8 @@ users
 You may use any stack you like as long as the following technologies
 are present.
 
+Prefered stack is based on Java 11+, Spring 5, Spring Boot 2, Hibernate (JPA).
+
 ### Mandatory
 
 * HTML, CSS
@@ -95,6 +97,15 @@ refreshing of the whole page
 with AJAX
 * first user is notified about the decision
 * user notifications using web socket
+
+### Friends
+
+* any user can ask any other on-line user to become friends - implemented as REST or server-side with AJAX
+* contacted user is notified using web-socket and given a choice
+* choice can be implemented as REST or server-side with AJAX
+* any user can remove any of his friends from the list, they should
+be asked for confirmation before the action is performed (using REST or AJAX), removal
+must be effective for both sides
 
 ### Gameplay
 
