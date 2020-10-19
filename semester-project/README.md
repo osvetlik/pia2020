@@ -141,3 +141,9 @@ or any other containers necessary
 
 You can either provide an archive containing all the parts (upload to the courseware)
 or (preferably) a link to a GIT repository of your choice (GitHub, BitBucket, ...).
+
+### Points
+
+All the bonus points listed are maximum values and can be reduced in case of incomplete
+work or other problems. You can receive maximum of **50 points** for the whole project.
+
