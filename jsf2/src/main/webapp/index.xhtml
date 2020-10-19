@@ -14,7 +14,12 @@
 			<p>You are anonymous, <a href="/login">login</a></p>
 		</sec:authorize>
 		<sec:authorize access="isAuthenticated()">
-			<p>You are authenticated, <a href="/logout">logout</a></p>
+			<form action="/logout" method="post">
+				<p>
+					You are authenticated, <button type="submit" class="btn btn-link">logout</button>
+					<input type="hidden" name="#{_csrf.parameterName}" value="#{_csrf.token}"/>
+				</p>
+			</form>
 		</sec:authorize>
 		<sec:authorize access="hasRole('ADMIN')">
 			<p>You are an admin</p>
