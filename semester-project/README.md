@@ -18,23 +18,29 @@ If there's anything unclear, contact me as soon as possible, please.
 * possibility to ask any on-line (and not currently engaged) user to play a game
 * gameplay
 * one or a selection of limited size boards
-* in-game chat
+* administration - user administration, password reset, tournament setup only for privileged
+users
 * log of all game results
+
+All mandatory parts must be fully implemented and work without failures. Login and registration
+screen must have all fields validated and must never end in an unhandled ISE 500.
+
+**Total: 25 points**
 
 ### Bonus parts
 
-* an unlimited board
-* password strength evaluation
-* OAuth2 authentication using Facebook, Google or any other OAuth2 IDM
+* an unlimited board - **3 points**
+* password strength evaluation - **2 points**
+* OAuth2 authentication using Facebook, Google or any other OAuth2 IDM - **10 points**
 * tournaments - set-up (define number of players), let players join, play, show
-results to participants
+results to participants - **5 points**
   - list of open tournaments must be added to the lobby unless announcements 
 	are implemented
-* announcements - part of lobby - announce open tournaments, game and tournament results
-* administration - user administration, password reset, tournament setup only for privileged
-users
-* password reset using a security question
-* password reset using an e-mail (reset link)
+* announcements - part of lobby - announce open tournaments, game and tournament results - **5 points**
+* password reset using a security question - **2 points**
+* password reset using an e-mail (reset link) - **5 points**
+* in-game chat - **5 points**
+* save games with all turns and allow replay - **5 points**
 * feel free to come up with any other suggestion
 
 ## Technology
@@ -49,7 +55,8 @@ Prefered stack is based on Java 11+, Spring 5, Spring Boot 2, Hibernate (JPA).
 * HTML, CSS
 * responsive design - using of pre-defined templates is forbidden, but you
 may use frameworks such as [Bootstrap](https://getbootstrap.com/),
-[Foundation](https://get.foundation/) or other
+[Foundation](https://get.foundation/) or other, don't worry about
+the design, it has to be functional, not pretty
 * IoC/DI
 * ORM
 * sdandalone database (MySQL, PostgreSQL or anything else you are able to
@@ -58,14 +65,14 @@ start in a Docker container)
 at least once
 * web sockets
 * docker
+* docker compose
 
 ### Bonus
 
-* HTML canvas for the gameplay (otherwise it can be implemented using an HTML table)
+* HTML canvas for the gameplay (otherwise it can be implemented using an HTML table) - **2 points**
 * [OpenAPI](https://swagger.io/specification/), Swagger, [RAML](https://raml.org/)
-or any other API modeling/specification language
-* docker compose
-* Angular, React, any other frontend technology
+or any other API modeling/specification language with code generation - **10 points**
+* Angular, React, any other frontend technology - **10 points**
 
 ## Solution details
 
@@ -127,7 +134,7 @@ The project submission must consist of:
 
 1. the source code
 2. a Dockerfile to build the project
-3. a Dockerfile to run the project (can be one Dockerfile for both)
+3. a Dockerfiles and docker compose file to run the entire project
 4. a documentation describing how to run the whole project including a database
 or any other containers necessary
 5. a short document (A4, can be a single markdown file) on the solution
