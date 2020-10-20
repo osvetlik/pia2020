@@ -12,8 +12,7 @@
 		<title>PIA APP: <ui:insert name="title">TEMPLATE</ui:insert></title>
 		<link
 			rel="stylesheet"
-			href="/webjars/bootstrap/css/bootstrap.min.css" />
-	
+			href="${pageContext.request.contextPath}/webjars/bootstrap/css/bootstrap.min.css" />
 	</h:head>
 	
 	<h:body>
@@ -21,9 +20,10 @@
 		<ui:insert name="body">TEMPLATE</ui:insert>
 		
 		<script
-			src="/webjars/jquery/jquery.min.js"></script>
+			src="${pageContext.request.contextPath}/webjars/jquery/jquery.min.js"></script>
 		<script
-			src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
+			src="${pageContext.request.contextPath}/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<ui:insert name="scripts"/>
 	</h:body>
 	
 </html>
