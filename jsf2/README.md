@@ -100,3 +100,18 @@ forget to modify the security settings to allow serving them to the user (browse
 
 When implementing, you may leave them unprotected (accessible without authentication),
 after that, try securing them and making them available only for authenticated users.
+
+To achieve messaging security, a new dependency must be added:
+
+```
+<dependency>
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-messaging</artifactId>
+</dependency>
+```
+
+Then, another security configuration must be created as described
+[on Baeldung.com](https://www.baeldung.com/spring-security-websockets)
+or in
+[the Spring Security documentation](https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/websocket.html).
+You can ignore the dependencies defined there as we have all of them covered.
