@@ -115,3 +115,18 @@ Then, another security configuration must be created as described
 or in
 [the Spring Security documentation](https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/websocket.html).
 You can ignore the dependencies defined there as we have all of them covered.
+
+There are two ways to handle CSRF in the WebSockets. You can either
+[add the necessary headers](https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/websocket.html#websocket-sameorigin-csrf),
+no need to implement the REST controller as you can simply use the expression language
+inside your HTML:
+
+```JavaScript
+<script type="application/javascript">
+	var headerName = "${_csrf.headerName}";
+	var token = "${_csrf.token}";
+</script>
+```
+
+Or you can [disable CSRF](https://docs.spring.io/spring-security/site/docs/5.0.x/reference/html/websocket.html#websocket-sameorigin-disable)
+just for the WebSockets.
