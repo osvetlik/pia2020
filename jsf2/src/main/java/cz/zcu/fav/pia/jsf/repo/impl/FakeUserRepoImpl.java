@@ -55,7 +55,7 @@ public class FakeUserRepoImpl implements UserRepo, UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return this.users.get(username);
+		return this.users.computeIfAbsent(username, k -> { throw new UsernameNotFoundException(username); });
 	}
 
 }

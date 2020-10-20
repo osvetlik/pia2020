@@ -7,13 +7,10 @@
 	template="/WEB-INF/jsf/base.xhtml"
 	lang="cs">
 
-	<ui:define name="title">Hello World!</ui:define>
+	<ui:define name="title">Admin</ui:define>
 	
 	<ui:define name="body">
-		<h1>Home</h1>
-		<sec:authorize access="isAnonymous()">
-			<p>You are anonymous, <a href="/login">login</a></p>
-		</sec:authorize>
+		<h1>Administration</h1>
 		<sec:authorize access="isAuthenticated()">
 			<form action="/logout" method="post">
 				<p>
@@ -25,7 +22,7 @@
 		<sec:authorize access="hasRole('ADMIN')">
 			<p>You are an admin</p>
 		</sec:authorize>
-		<p><a href="/admin">Administration</a></p>
+		<p><a href="/">Home</a></p>
 	</ui:define>
 	
 </ui:composition>

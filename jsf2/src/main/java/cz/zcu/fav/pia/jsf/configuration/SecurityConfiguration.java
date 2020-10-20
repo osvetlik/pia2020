@@ -7,12 +7,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true) // enables @PreAuthorize annotations for endpoint restrictions
-@Slf4j
 @RequiredArgsConstructor
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -20,7 +18,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests(auth -> auth
-				.anyRequest().permitAll())
+					.antMatchers("/webjars/**").permitAll()
+					.antMatchers("/admin**").authenticated()
+					.anyRequest().permitAll())
 			.formLogin()
 			.loginPage("/login")
 			.defaultSuccessUrl("/")
