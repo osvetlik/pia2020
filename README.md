@@ -28,7 +28,7 @@ See the [ioc-spring](ioc-spring/) folder.
 
 See the [jsf](jsf/) folder.
 
-## Server side applications 2 - Security, Web Sockets, Logic implementation
+## Server side applications 2 - Security, Web Sockets
 
 See the [jsf2](jsf2/) folder.
 
