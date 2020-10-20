@@ -97,6 +97,12 @@
 		</dependency>
 
 		<!-- WebSockets -->
+		<!-- Spring Boot WebSockets dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-websocket</artifactId>
+		</dependency>
+
 		<!-- 
 			Webjars core - provides our application with the /webjars folder containing 
 			third party CSS and JS resources
