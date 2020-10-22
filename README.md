@@ -23,3 +23,15 @@ See the [servlets](servlets/) folder for more information and a list of tasks.
 ## Inversion of Control & Dependency Injection
 
 See the [ioc-spring](ioc-spring/) folder.
+
+## Server side applications
+
+See the [jsf](jsf/) folder.
+
+## Server side applications 2 - Security, Web Sockets
+
+See the [jsf2](jsf2/) folder.
+
+## Semester project
+
+See the [semester-project](semester-project/) folder.
