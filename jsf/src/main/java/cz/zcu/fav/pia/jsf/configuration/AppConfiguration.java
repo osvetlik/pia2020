@@ -26,7 +26,8 @@ public class AppConfiguration extends HttpConfigurationProvider {
 				.where("path").matches(".*\\.xhtml$")
 
 				// We want to map the root URI to our index page
-				.addRule(Join.path("/").to("/index.xhtml"));
+				.addRule(Join.path("/").to("/index.xhtml"))
+				.addRule(Join.path("/second").to("/second.xhtml"));
 	}
 
 	@Override
