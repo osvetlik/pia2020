@@ -3,12 +3,106 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	
-	template="/WEB-INF/jsf/#{param['temp'] != null ? param['temp'] : 'base'}.xhtml">
+	template="/WEB-INF/jsf/#{param['temp'] != null ? param['temp'] : 'bootstrap'}.xhtml">
 
 	<ui:define name="title">Hello World!</ui:define>
 	
 	<ui:define name="body">
-	    <h1>Hello World!</h1>
+		<div class="container">
+			<div class="row">
+				<div class="col-4">
+					<div class="list-group" id="list-tab" role="tablist">
+						<a 
+							class="list-group-item list-group-item-action active"
+							id="list-hello-world"
+							data-toggle="list"
+							href="#hello-world"
+							role="tab">Hello World</a>
+						<a 
+							class="list-group-item list-group-item-action"
+							id="list-request-params"
+							data-toggle="list"
+							href="#request-params"
+							role="tab">Request params</a>
+						<a 
+							class="list-group-item list-group-item-action"
+							id="list-request-scope"
+							data-toggle="list"
+							href="#request-scope"
+							role="tab">Request scope</a>
+						<a 
+							class="list-group-item list-group-item-action"
+							id="list-info"
+							data-toggle="list"
+							href="#info"
+							role="tab">Info</a>
+					</div>
+				</div>
+				<div class="col-8">
+					<div class="tab-content" id="nav-tabContent">
+						<div class="tab-pane fade show active" id="hello-world" role="tabpanel" aria-labelledby="list-hello-world">
+							<h1>Hello World!</h1>
+						</div>
+						<div class="tab-pane fade" id="request-params" role="tabpanel" aria-labelledby="list-request-params">
+							<h:dataTable value="#{param}" var="p">
+								<h:column>
+									<f:facet name="header">
+										Param name
+									</f:facet>
+									#{p.key}
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										Param value
+									</f:facet>
+									#{p.value}
+								</h:column>
+							</h:dataTable>
+						</div>
+						<div class="tab-pane fade" id="request-scope" role="tabpanel" aria-labelledby="list-request-scope">
+							<h:dataTable value="#{requestScope}" var="p">
+								<h:column>
+									<f:facet name="header">
+										Param name
+									</f:facet>
+									#{p.key}
+								</h:column>
+								<h:column>
+									<f:facet name="header">
+										Param value
+									</f:facet>
+									#{p.value}
+								</h:column>
+							</h:dataTable>
+						</div>
+						<div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="list-info">
+							<h1>App started at:</h1>
+							<p>#{applicationTime}</p>
+							<p>
+								<h:outputText value="#{applicationTime}">
+									<f:convertDateTime
+										type="both"
+										dateStyle="medium"
+										timeStyle="medium"
+									/>
+								</h:outputText>
+							</p>
+							<h1>Request made at:</h1>
+							<p>#{requestTime}</p>
+							<p>
+								<h:outputText value="#{requestTime}">
+									<f:convertDateTime
+										type="both"
+										dateStyle="medium"
+										timeStyle="medium"
+									/>
+								</h:outputText>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</ui:define>
 	
 </ui:composition>
