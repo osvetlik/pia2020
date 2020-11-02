@@ -210,7 +210,7 @@ a JSF function.
 #### `jsf/password.xhtml`
 
 Logged user's password change form. See the `<h:messages />` tag used to display any messages
-passed from the [service](#changepasswordservice-changepasswordserviceimpl).
+passed from the [service](#changepasswordservice--changepasswordserviceimpl).
 
 #### `JsfApp3` class
 
