@@ -304,4 +304,5 @@ Don't use the `ChangePasswordService` and its implementation. Create a separate
 
 ## Resources & Links
 
-* [JSF Taglib Documentation](https://docs.oracle.com/javaee/7/javaserver-faces-2-2/vdldocs-facelets/toc.htm)
+* [JSF 2.3 Taglib #1](https://javaserverfaces.github.io/docs/2.3/vdldoc/index.html)
+* [JSF 2.3 Taglib #2](https://javaserverfaces.github.io/docs/2.3/vdldocs/facelets/index.html)
