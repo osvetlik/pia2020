@@ -304,5 +304,5 @@ Don't use the `ChangePasswordService` and its implementation. Create a separate
 
 ## Resources & Links
 
-* [JSF 2.3 Taglib #1](https://javaserverfaces.github.io/docs/2.3/vdldoc/index.html)
-* [JSF 2.3 Taglib #2](https://javaserverfaces.github.io/docs/2.3/vdldocs/facelets/index.html)
+* [JSF 2.3 Taglib #1 - prefixes f: and ui:](https://javaserverfaces.github.io/docs/2.3/vdldoc/index.html)
+* [JSF 2.3 Taglib #2 - prefix h:](https://javaserverfaces.github.io/docs/2.3/vdldocs/facelets/index.html)
