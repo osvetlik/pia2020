@@ -14,14 +14,14 @@
 			<h1>Login</h1>
 			<form action="/login" method="POST">
 				<div class="form row">
-					<input type="text" class="form-control" name="username" placeholder="user" />
+					<input type="text" class="form-control" name="username" placeholder="user" tabindex="1" />
 				</div>
 				<div class="form row">
-					<input type="password" class="form-control" name="password" placeholder="password" />
+					<input type="password" class="form-control" name="password" placeholder="password" tabindex="1" />
 					<input type="hidden" name="#{_csrf.parameterName}" value="#{_csrf.token}"/>
 				</div>
 				<div class="form row">
-					<button type="submit" class="btn btn-primary">Log In</button>
+					<button type="submit" class="btn btn-primary" tabindex="1">Log In</button>
 				</div>
 			</form>
 		</div>

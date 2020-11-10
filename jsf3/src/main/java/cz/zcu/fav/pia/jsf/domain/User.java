@@ -5,20 +5,22 @@ import java.util.Set;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.RequiredArgsConstructor;
-import lombok.Value;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Value
+@Data
 @Builder(toBuilder = true)
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements UserDetails {
 
 	private static final long serialVersionUID = -674023847374736617L;
 
-	String username;
-	String password;
-	Set<? extends GrantedAuthority> authorities;
+	private String username;
+	private String password;
+	private Set<? extends GrantedAuthority> authorities;
 
 	@Override
 	public boolean isAccountNonExpired() {

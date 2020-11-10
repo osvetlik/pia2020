@@ -1,7 +1,9 @@
 package cz.zcu.fav.pia.jsf.repo.impl;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -66,6 +68,21 @@ public class FakeUserRepoImpl implements UserRepo, UserDetailsService {
 	@Override
 	public void saveUser(User user) {
 		this.users.put(user.getUsername(), user);
+	}
+
+	@Override
+	public List<User> listUsers() {
+		return Collections.unmodifiableList(List.copyOf(this.users.values()));
+	}
+
+	@Override
+	public boolean hasUser(String login) {
+		return this.users.containsKey(login);
+	}
+
+	@Override
+	public void deleteUser(User user) {
+		this.users.remove(user.getUsername());
 	}
 
 }

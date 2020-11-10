@@ -59,7 +59,10 @@
 						<sec:authorize access="isAuthenticated()">
 							<li class="nav-item">
 								<form action="/logout" method="post">
-									<button type="submit" class="nav-link btn btn-link"><em class="fa fa-sign-out-alt"></em></button>
+									<button type="submit" class="nav-link btn btn-link" title="Logout">
+										#{loggedUser.user.username}
+										<em class="fa fa-sign-out-alt"></em>
+									</button>
 									<input type="hidden" name="#{_csrf.parameterName}" value="#{_csrf.token}"/>
 								</form>
 							</li>
