@@ -183,6 +183,22 @@ Type "help" for help.
 piadata=# 
 ```
 
+To exit the tool, type `\q` and enter (Ctrl+D does the same, but I'm not sure
+whether it works in Windows):
+
+```
+piadata=# \q
+$
+```
+
+To create the sample table necessary to run the project in its current state:
+
+```
+piadata=# CREATE TABLE SAMPLE (id UUID PRIMARY KEY);
+CREATE TABLE
+piadata=#
+```
+
 This way you don't have to manage the schema within the application.
 
 You can use your own installation or even your own database engine,
