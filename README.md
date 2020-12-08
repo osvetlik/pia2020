@@ -1,3 +1,5 @@
+![Inventi](img/inventi.png)
+
 # PIA 2020
 
 ## Maven
@@ -43,6 +45,10 @@ See the [data](data/) folder.
 ## JPA 2
 
 See the [data2](data2/) folder.
+
+## REST API Design
+
+See the [api](api/) folder.
 
 ## Semester project
 

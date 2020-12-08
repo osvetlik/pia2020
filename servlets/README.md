@@ -1,3 +1,5 @@
+![Inventi](../img/inventi.png)
+
 # Servlets
 
 ## Why?
