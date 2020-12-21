@@ -1,0 +1,301 @@
+openapi: 3.0.3
+info:
+  title: API for PIA labs
+  description: |
+    Sample API definition for PIA labs
+  version: 1.0.0
+
+security:
+  - BasicAuth: []
+
+tags:
+  - name: user
+    description: User management entry points
+
+paths:
+  '/api/v1/admin/user':
+    get:
+      summary: List users
+      operationId: listUsers
+      tags:
+        - user
+      parameters:
+        - $ref: '#/components/parameters/OffsetQueryParam'
+        - $ref: '#/components/parameters/LimitQueryParam'
+      responses:
+        '200':
+          $ref: '#/components/responses/ListUsersResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+
+  '/api/v1/admin/user/{userId}':
+    parameters:
+      - $ref: '#/components/parameters/UserIdPathParam'
+    get:
+      summary: Get user detail
+      operationId: getUser
+      tags:
+        - user
+      responses:
+        '200':
+          $ref: '#/components/responses/GetUserResponse'
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+    put:
+      summary: Update user detail
+      operationId: updateUser
+      tags:
+        - user
+      requestBody:
+        $ref: '#/components/requestBodies/UpdateUserRequest'
+      responses:
+        '204':
+          description: User was successfully updated.
+        '400':
+          $ref: '#/components/responses/400'
+        '401':
+          $ref: '#/components/responses/401'
+        '403':
+          $ref: '#/components/responses/403'
+        '404':
+          $ref: '#/components/responses/404'
+    
+  
+components:
+  parameters:
+    OffsetQueryParam:
+      in: query
+      name: offset
+      required: false
+      schema:
+        $ref: '#/components/schemas/PageNumber'
+    LimitQueryParam:
+      in: query
+      name: limit
+      required: false
+      schema:
+        $ref: '#/components/schemas/PageSize'
+    UserIdPathParam:
+      in: path
+      name: userId
+      required: true
+      schema:
+        $ref: '#/components/schemas/UUID'
+
+  requestBodies:
+    UpdateUserRequest:
+      description: Contains all fiels that can be updated.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UpdatableUserInfo'
+
+  responses:
+    '400':
+      description: Problem with input data
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+
+    '401':
+      description: User is not authenticated.
+
+    '403':
+      description: User is not authorized to perform requested action.
+
+    '404':
+      description: Object not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiError'
+
+    GetUserResponse:
+      description: Response to the getUser operation.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UserDetail'
+
+    ListUsersResponse:
+      description: Response to the listUsers operation.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/UsersList'
+
+
+  schemas:
+  
+    ApiError:
+      type: object
+      properties:
+        code:
+          $ref: '#/components/schemas/ErrorCode'
+        message:
+          type: string
+          maxLength: 1024
+      example:
+        code: APP123
+        message: Cannot find user 'hlinik'!
+
+    ErrorCode:
+      type: string
+      pattern: '^[A-Z]{3}\d{3}$'
+      example: APP123
+
+    Login:
+      type: string
+      pattern: '^[a-zA-Z][a-zA-Z0-9]*([\._][a-zA-Z0-9]+)*$'
+      minLength: 3
+      example:
+        - karel.havlicek
+        - lucy_liu
+  
+    PageNumber:
+      description: Number of the current page.
+      type: integer
+      format: int64
+      minimum: 0
+      example: 42
+
+    PageSize:
+      description: Number of items on one page.
+      type: integer
+      format: int32
+      minimum: 10
+      maximum: 100
+      example: 25
+
+    Paging:
+      description: Paging object covering all necessary fields (page number, page size, total count of objects).
+      type: object
+      properties:
+        pageNumber:
+          $ref: '#/components/schemas/PageNumber'
+        pageSize:
+          $ref: '#/components/schemas/PageSize'
+        totalCount:
+          $ref: '#/components/schemas/TotalCount'
+      required:
+        - pageNumber
+        - pageSize
+        - totalCount
+      example:
+        pageNumber: 42
+        pageSize: 25
+        totalCount: 1984
+
+    TotalCount:
+      description: Total count of elements.
+      type: integer
+      format: int64
+      minimum: 0
+      example: 1984
+
+    UpdatableUserInfo:
+      type: object
+      properties:
+        firstName:
+          type: string
+          example: Karel
+        lastName:
+          type: string
+          example: Havlíček
+        email:
+          type: string
+          format: email
+          example: karel.havlicek@gmail.com
+        password:
+          type: string
+          format: password
+          minLength: 5
+      example:
+        firstName: Karel
+        lastName: Havlíček
+        email: karel.havlicek@gmail.com
+        password: L33tHax0r
+
+    UserDetail:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/UserSummary'
+      properties:
+        roles:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRole'
+        description:
+          type: string
+          maxLength: 1024
+          example: He's the boss.
+      example:
+        id: af1e78a2-43b4-11eb-9176-54e1ad105857
+        firstName: Karel
+        lastName: Havlíček
+        email: karel.havlicek@gmail.com
+
+    UsersList:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/Paging'
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserSummary'
+
+    UserRole:
+      type: string
+      pattern: '^[A-Z]+$'
+      minLength: 3
+      maxLength: 64
+      example: ADMIN
+
+    UserSummary:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/UUID'
+        login:
+          $ref: '#/components/schemas/Login'
+        firstName:
+          type: string
+          example: Karel
+        lastName:
+          type: string
+          example: Havlíček
+        email:
+          type: string
+          format: email
+          example: karel.havlicek@gmail.com
+      required:
+        - id
+        - email
+      example:
+        id: af1e78a2-43b4-11eb-9176-54e1ad105857
+        firstName: Karel
+        lastName: Havlíček
+        email: karel.havlicek@gmail.com
+
+    UUID:
+      description: Using UUIDs for object IDs instead of plain integers.
+      type: string
+      format: uuid
+      example: af1e78a2-43b4-11eb-9176-54e1ad105857
+
+  securitySchemes:
+    BasicAuth:
+      type: http
+      scheme: basic
