@@ -1,5 +1,3 @@
-![Inventi](../img/inventi.png)
-
 # Inversion of Control & Dependency Injection
 
 ## Terms and theory

@@ -1,5 +1,3 @@
-![Inventi](../img/inventi.png)
-
 # Relational database access
 
 ## Terms and theory

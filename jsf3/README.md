@@ -1,5 +1,3 @@
-![Inventi](../img/inventi.png)
-
 # Server side actions
 
 ## Terms and theory

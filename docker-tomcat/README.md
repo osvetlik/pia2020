@@ -1,5 +1,3 @@
-![Inventi](../img/inventi.png)
-
 # Docker & Tomcat
 
 To build the image, run inside this folder:

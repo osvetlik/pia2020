@@ -1,5 +1,3 @@
-![Inventi](../img/inventi.png)
-
 # REST API Design
 
 We are going to keep this as simple as possible. There is no need to

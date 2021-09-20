@@ -1,5 +1,3 @@
-![Inventi](img/inventi.png)
-
 # PIA 2020
 
 ## Maven

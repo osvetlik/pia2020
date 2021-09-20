@@ -1,5 +1,3 @@
-![Inventi](../img/inventi.png)
-
 # Security, Web Sockets, Logic implementation
 
 ## Terms and theory

@@ -1,5 +1,3 @@
-![Inventi](../img/inventi.png)
-
 # Server side applications & JSF
 
 ## Terms and theory
