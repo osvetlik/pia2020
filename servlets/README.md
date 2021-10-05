@@ -83,10 +83,27 @@ You should see the text `Hello World!`.
 
 Tasks:
 
-1. Implement a `@WebFilter` started in the `HelloWorldFilter` class to set character encoding to `UTF-8`. Test it with
-expanding the servlet to display a value of a request parameter named `from`. You should get `Hello World from žluťoučký kůň!`
-[here](http://localhost:8080/pia-servlets1-0.0.1-SNAPSHOT/hello?from=žluťoučký+kůň)
+### Request parameter
+Expand the servlet to display a value of a request parameter named `from`. When present, display
 
-2. Explore the `ServletRequestListener` and `ServletContextListener` interfaces implemented in `HelloWorldListener` and implement
-a listener that would set the application start time at context start as an application context variable named `applicationStart`.
-Then implement a listener that would measure the duration of the request processing. Display the application start time in the `HelloWorld` servlet.
+> Hello world from <value of the from parameter>!
+
+Otherwise, display just
+
+> Hello world!
+
+[Try passing](http://localhost:8080/pia-servlets1-0.0.1-SNAPSHOT/hello?from=žluťoučký+kůň)
+`žluťoučký kůň` as the value of the `from` parameter.
+
+### WebFilter
+Implement a `@WebFilter` started in the `HelloWorldFilter` class to set character encoding to `UTF-8`. Modify the servlet
+to use a `Writer` instead of the `OutputStream` to fix the encoding issues.
+
+### ServletContextListener
+Explore the `ServletRequestListener` and `ServletContextListener` interfaces implemented in `HelloWorldListener` and implement
+a context listener that would set the application start time at context start as an application context variable named `applicationStart`.
+Display the value in our servlet.
+
+### ServletContextListener
+Implement a request listener that would measure the duration of the request processing. You cannot display this value
+in the request as it is measured after the request is processed, but you can log it.
