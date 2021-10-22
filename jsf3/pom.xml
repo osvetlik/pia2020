@@ -20,6 +20,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<joinfaces.version>4.3.4</joinfaces.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencyManagement>
