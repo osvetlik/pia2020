@@ -32,10 +32,12 @@ public class AuthMethodSetter implements Filter {
 		else {
 			final var r = (HttpServletRequest) request;
 			final var cookies = r.getCookies();
-			for (Cookie c : cookies) {
-				if (AUTH_METHOD.equals(c.getName())) {
-					authMethod = c.getValue();
-					break;
+			if (cookies != null) {
+				for (Cookie c : cookies) {
+					if (AUTH_METHOD.equals(c.getName())) {
+						authMethod = c.getValue();
+						break;
+					}
 				}
 			}
 		}
