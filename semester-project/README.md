@@ -160,6 +160,11 @@ to fix these:
 4. your REST API does not follow the [basic rules](https://restfulapi.net/resource-naming/)
     - use the proper methods
     - use the proper paths
+5. your application is not properly layered, keep your layers separate
+    - presentation/controller
+    - logic/service
+    - data access
+6. any of the mandatory parts/technologies is missing
 
 ## Submission
 
