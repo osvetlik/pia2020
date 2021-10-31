@@ -32,6 +32,22 @@ See the [jsf](jsf/) folder.
 
 See the [jsf2](jsf2/) folder.
 
+## Server side applications 3 - Actions
+
+See the [jsf3](jsf3/) folder.
+
+## JDBC/JPA
+
+See the [data](data/) folder.
+
+## JPA 2
+
+See the [data2](data2/) folder.
+
+## REST API Design
+
+See the [api](api/) folder.
+
 ## Semester project
 
 See the [semester-project](semester-project/) folder.
