@@ -1,0 +1,38 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:sec="https://joinfaces.org/security"
+	
+	template="/WEB-INF/jsf/base.xhtml"
+	lang="cs">
+
+	<ui:define name="title">Public</ui:define>
+	
+	<ui:define name="body">
+		<div class="container">
+			<h1>JSF Form</h1>
+			<h:form>
+				<div class="form row">
+					<h:outputLabel for="sampleName" styleClass="form-label">Name: </h:outputLabel>
+					<h:inputText 
+						id="sampleName"
+						value="#{sampleJsfBean.name}"
+						tabindex="1"
+						styleClass="form-control"
+						placelholder="name"
+					 />
+				</div>
+				<div class="form row">
+					<h:commandLink action="#{sampleJsfBean.submit}" styleClass="btn btn-primary">Send</h:commandLink>
+				</div>
+			</h:form>
+		</div>
+		<h:panelGroup rendered="#{sampleJsfBean.name != null}">
+			<div class="container">
+				#{sampleJsfBean.helloWorld()}
+			</div>
+		</h:panelGroup>
+	</ui:define>
+	
+</ui:composition>

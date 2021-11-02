@@ -22,6 +22,7 @@ public class AppConfiguration extends HttpConfigurationProvider {
 				.addRule().when(DispatchType.isRequest().and(Path.matches("/{path}")))
 				.perform(SendStatus.code(404))
 				.where("path").matches("^/jsf/.*\\.xhtml$")
+				.addRule(Join.path("/public").to("/jsf/public.xhtml"))
 				.addRule(Join.path("/").to("/jsf/index.xhtml"))
 				.addRule(Join.path("/login").to("/jsf/login.xhtml"));
 	}

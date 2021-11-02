@@ -14,7 +14,11 @@ import lombok.RequiredArgsConstructor;
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true) // enables @PreAuthorize annotations for endpoint restrictions
+@EnableGlobalMethodSecurity(
+		jsr250Enabled = true,
+		prePostEnabled = true,
+		securedEnabled = true
+)
 @RequiredArgsConstructor
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -31,6 +35,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 					.antMatchers("/webjars/**").permitAll()
 					.antMatchers("/js/**").permitAll()
 					.antMatchers(LOGIN_URI).permitAll()
+					.antMatchers("/javax.faces.resource/**").permitAll()
+					.antMatchers("/public**").permitAll()
 					.anyRequest().authenticated())
 			.userDetailsService(this.uds)
 			.formLogin()

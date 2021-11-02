@@ -25,7 +25,7 @@
 			href="/webjars/bootstrap/css/bootstrap.min.css" />
 		<link
 			rel="stylesheet"
-			href="/webjars/font-awesome/5.15.1/css/all.min.css" />
+			href="/webjars/font-awesome/5.15.4/css/all.min.css" />
 	
 	</h:head>
 	
@@ -37,13 +37,16 @@
 					<span class="navbar-toggler-icon"></span>
 				</button>
 				<div id="navigationContent" class="collapse navbar-collapse">
-					<sec:authorize access="!isAuthenticated()">
-						<ul class="navbar-nav">
+					<ul class="navbar-nav">
+						<sec:authorize access="!isAuthenticated()">
 							<li class="nav-item">
 								<a href="/login" class="nav-link">Login</a>
 							</li>
-						</ul>
-					</sec:authorize>
+						</sec:authorize>
+						<li class="nav-item">
+							<a href="/public" class="nav-link">Public</a>
+						</li>
+					</ul>
 					<ui:insert name="navigation"></ui:insert>
 					<ul class="navbar-nav ml-auto">
 						<sec:authorize access="isAuthenticated()">

@@ -27,7 +27,7 @@ a random one and show it somewhere in the logs.
 
 ### Create an administration page
 
-Join your work from the [last week](../data/) and the [third lecture on JSF](../jsf3/)
+In the `cz.zcu.fav.pia.jsf.admin` you will find a set of classes you will need
 to create an administration page.
 
 1. Only users with the role `ADMIN` (remember that you have to prefix roles with `ROLE`

@@ -23,10 +23,10 @@
 				<ui:repeat var="authMethod" value="#{userDetailsServiceProvider.services.keySet()}">
 					<div class="form-check">
 						<label class="form-check-label">
-							<f:subview id="nic" rendered="#{authMethodProvider.authMethod == authMethod}">
+							<f:subview rendered="#{authMethodProvider.authMethod == authMethod}">
 								<input class="form-check-input" name="authMethod" type="radio" value="#{authMethod}" checked="checked" />
 							</f:subview>
-							<f:subview id="nic" rendered="#{authMethodProvider.authMethod != authMethod}">
+							<f:subview rendered="#{authMethodProvider.authMethod != authMethod}">
 								<input class="form-check-input" name="authMethod" type="radio" value="#{authMethod}" />
 							</f:subview>
 							#{authMethod}
