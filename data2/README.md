@@ -12,6 +12,11 @@ a look at the hierarchy of your repository interface. It inherits from a rather
 long chain of interfaces starting with `JpaRepository`. I recommend you to 
 take a look at all those repositories and what methods they provide you with.
 
+There is a [sample JSF page](http://localhost:8080/public) showing how JSF
+handle forms, see `public.xhtml`.
+
+The corresponding JSF beans are in the `cz.zcu.fav.pia.jsf.admin.jsf` package.
+
 ## Tasks
 
 Today we are going to continue with the work started last week. Use the [same project](../data/)
