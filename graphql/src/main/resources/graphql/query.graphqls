@@ -1,0 +1,11 @@
+type Query {
+	helloWorld : String
+	javaVersion: Version
+}
+
+type Version {
+	version: [Int]
+	pre: String
+	build: Int
+	optional: String
+}

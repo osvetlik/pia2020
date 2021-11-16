@@ -48,6 +48,10 @@ See the [data2](data2/) folder.
 
 See the [api](api/) folder.
 
+## GraphQL
+
+See the [graphql](graphql/) folder.
+
 ## Semester project
 
 See the [semester-project](semester-project/) folder.
