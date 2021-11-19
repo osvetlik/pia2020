@@ -180,6 +180,7 @@ or any other containers necessary
        - run `docker-compose build`
        - run `docker-compose up`
 5. a short document (A4, can be a single markdown file) on the solution
+    - don't forget to list all bonus features included in your application so that I can check them
 
 You can either provide an archive containing all the parts (upload to the courseware)
 or **preferably** a link to a GIT repository of your choice (GitHub, BitBucket, ...).
