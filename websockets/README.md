@@ -12,3 +12,6 @@ documentation to learn how to properly secure a WebSockets application.
 Follow the [Spring tutorial](https://spring.io/guides/gs/messaging-stomp-websocket/) on
 WebSockets. 
 
+## Sending messages to specific users
+
+[Baeldung tutorial](https://www.baeldung.com/spring-websockets-send-message-to-user).
