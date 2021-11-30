@@ -55,3 +55,13 @@ See the [graphql](graphql/) folder.
 ## Semester project
 
 See the [semester-project](semester-project/) folder.
+
+## Other resources
+
+### Docker compose
+
+[Getting started with docker compose](https://docs.docker.com/compose/gettingstarted/).
+
+### Security
+
+OWASP's [list of attacks](https://owasp.org/www-community/attacks/).
