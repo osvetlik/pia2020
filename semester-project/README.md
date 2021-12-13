@@ -50,7 +50,7 @@ information about any user
       - be sure to check for the user name (e-mail) availability when doing so
       - generate a new strong password for the user
       - log both, the e-mail/username and password to the console
-- announcments
+- announcements
     - special posts visible to all users regardless the friendship status
     - only *ADMIN* users can create announcments
     - their placement in the feed follows the same rules as regular posts
